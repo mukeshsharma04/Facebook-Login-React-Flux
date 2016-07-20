@@ -60,16 +60,5 @@ login: () => {
     });
 },
 
-fetchData : function(response) {
-  FB.api('/me?fields=picture,age_range,birthday,id,first_name,last_name,email,gender,name,verified',
-        function(res) {
-        var resp = Object.assign(response, res);
-          MainDispatcher.dispatch({
-              actionType: B_CONST.FACEBOOK_LOGGED_IN,
-              data: resp
-          });
-
-        },{scope : 'email,user_birthday'});
-}
 }
 module.exports = FacebookActionCreators;
