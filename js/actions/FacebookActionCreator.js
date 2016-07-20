@@ -55,7 +55,6 @@ login: () => {
                       data: resp
                   });
 
-                resp['social_user_id'] = "fb_"+resp.id;
                 },{scope : 'email,user_birthday'});
         }
     });
@@ -70,7 +69,6 @@ fetchData : function(response) {
               data: resp
           });
 
-        resp['social_user_id'] = "fb_"+resp.id;
         },{scope : 'email,user_birthday'});
 }
 }
