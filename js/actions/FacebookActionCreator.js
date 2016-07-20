@@ -4,7 +4,7 @@ import B_CONST from '../../constants/BaseConstants.js'
 const APP_ID = '123658774362139'
 
 const FacebookActionCreators = {
-  initFacebook: function(){ console.log("init");
+  initFacebook: function(){ 
     window.fbAsyncInit = function() {
     FB.init({
       appId      : APP_ID,
@@ -14,9 +14,8 @@ const FacebookActionCreators = {
       version    : 'v2.5' // use graph api version 2.5
     });
 
-  var status =  FacebookActionCreators.getLoginStatus();
-  console.log("LOginStatus");
-console.log(status);
+  FacebookActionCreators.getLoginStatus();
+
   };
     // Load the SDK asynchronously
     (function(d, s, id) {
@@ -35,8 +34,8 @@ console.log(status);
    //    your app or not.
    //
    // These three cases are handled in the callback function.
-  getLoginStatus : function(response) { console.log("STATs"+response);
-    window.FB.getLoginStatus((response) => {  console.log(response);
+  getLoginStatus : function(response) {
+    window.FB.getLoginStatus((response) => {  
       MainDispatcher.dispatch({
         actionType : B_CONST.FACEBOOK_INITIALIZED,
         data : response
@@ -46,7 +45,7 @@ console.log(status);
 
 
 login: () => {
-    window.FB.login(  (response) => { console.log(response);
+    window.FB.login(  (response) => {
         if (response.status === 'connected') {
           FB.api('/me?fields=picture,age_range,birthday,id,first_name,last_name,email,gender,name,verified',
                 function(res) {
