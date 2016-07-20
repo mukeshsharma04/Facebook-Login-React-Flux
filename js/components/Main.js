@@ -33,7 +33,7 @@ class Main extends React.Component {
         this.setState(this.getFacebookState());
     }
 
-    render() { console.log(this.state.loggedIn ); console.log(this.state.userProfile );
+    render() { 
         return (
             <div className="col-md-12">
               {(!this.state.loggedIn) ? <FacebookLogin /> : <LeftSideBar profile={this.state.userProfile} picture={this.state.userPicture}/>}
